@@ -5,6 +5,7 @@ import * as cookieParser from 'cookie-parser';
 import * as session from 'express-session';
 import { createClient } from 'redis';
 import * as createRedisStore from 'connect-redis';
+import * as passport from 'passport';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -26,6 +27,9 @@ async function bootstrap() {
       saveUninitialized: false,
     }),
   );
+
+  app.use(passport.initialize());
+  app.use(passport.session());
 
   await app.listen(configService.get('PORT'));
 }

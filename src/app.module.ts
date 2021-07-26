@@ -3,7 +3,6 @@ import * as Joi from '@hapi/joi';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
-
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -16,6 +15,7 @@ import { UsersModule } from './users/users.module';
         SESSION_SECRET: Joi.string().required(),
         REDIS_HOST: Joi.string().required(),
         REDIS_PORT: Joi.number().required(),
+        GRAPHQL_PLAYGROUND: Joi.number().required(),
       }),
     }),
     AuthModule,
