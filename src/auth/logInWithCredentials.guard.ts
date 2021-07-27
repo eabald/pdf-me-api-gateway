@@ -7,8 +7,11 @@ export class LogInWithCredentialsGuard extends AuthGuard('local') {
     await super.canActivate(context);
 
     const request = context.switchToHttp().getRequest();
-    await super.logIn(request);
+    if (request.isAuthenticated()) {
+      return true;
+    }
 
+    await super.logIn(request);
     return true;
   }
 }
