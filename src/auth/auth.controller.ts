@@ -7,7 +7,6 @@ import {
   UseFilters,
   Inject,
   Body,
-  Get,
 } from '@nestjs/common';
 import { LogInWithCredentialsGuard } from './logInWithCredentials.guard';
 import { RequestWithUser } from './interfaces/requestWithUser.interface';
@@ -39,8 +38,9 @@ export class AuthController {
 
   @HttpCode(200)
   @UseGuards(CookieAuthenticationGuard)
-  @Get()
-  async authenticate(@Req() request: RequestWithUser) {
-    return request.user;
+  @Post('log-out')
+  async logOut(@Req() request: RequestWithUser) {
+    request.logOut();
+    request.session.cookie.maxAge = 0;
   }
 }
