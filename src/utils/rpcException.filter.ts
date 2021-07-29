@@ -8,11 +8,8 @@ export class RpcExceptionFilter implements ExceptionFilter {
   catch(exception: RpcMessageException, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<Response>();
-    const content = exception.getError();
+    const { statusCode, message } = exception.getError();
 
-    response.status(content.statusCode).json({
-      statusCode: content.statusCode,
-      message: content.message,
-    });
+    response.status(statusCode).json({ statusCode, message });
   }
 }
