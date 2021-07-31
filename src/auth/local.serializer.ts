@@ -1,5 +1,4 @@
-// *import { UsersService } from '../users/users.service';
-import { User } from './interfaces/user.interface';
+import { User } from '../users/interfaces/user.interface';
 import { PassportSerializer } from '@nestjs/passport';
 import { Injectable, Inject } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';

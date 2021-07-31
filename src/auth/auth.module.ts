@@ -4,9 +4,23 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 import { LocalStrategy } from './local.strategy';
 import { LocalSerializer } from './local.serializer';
+import { JwtModule } from '@nestjs/jwt';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
-  imports: [ConfigModule],
+  imports: [
+    ConfigModule,
+    JwtModule.registerAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: async (configService: ConfigService) => ({
+        secret: configService.get('JWT_SECRET'),
+        signOptions: {
+          expiresIn: `${configService.get('JWT_EXPIRATION_TIME')}s`,
+        },
+      }),
+    }),
+  ],
   providers: [
     {
       provide: 'AUTH_SERVICE',
@@ -52,6 +66,7 @@ import { LocalSerializer } from './local.serializer';
     },
     LocalStrategy,
     LocalSerializer,
+    JwtStrategy,
   ],
   controllers: [AuthController],
 })

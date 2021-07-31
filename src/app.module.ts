@@ -16,6 +16,8 @@ import { UsersModule } from './users/users.module';
         REDIS_HOST: Joi.string().required(),
         REDIS_PORT: Joi.number().required(),
         GRAPHQL_PLAYGROUND: Joi.number().required(),
+        JWT_SECRET: Joi.string().required(),
+        JWT_EXPIRATION_TIME: Joi.number().required(),
       }),
     }),
     AuthModule,
