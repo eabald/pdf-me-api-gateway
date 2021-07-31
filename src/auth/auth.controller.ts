@@ -60,6 +60,7 @@ export class AuthController {
 
   @Post('reset-password')
   @UseFilters(RpcExceptionFilter)
+  @UseGuards(JwtAuthenticationGuard)
   async resetPassword(@Body() email: ResetPasswordDto) {
     return this.authenticationService
       .send({ cmd: 'auth-reset-password' }, email)
@@ -77,7 +78,7 @@ export class AuthController {
 
   @Post('resend-email-confirm')
   @UseFilters(RpcExceptionFilter)
-  @UseGuards(JwtAuthenticationGuard)
+  @UseGuards(CookieAuthenticationGuard)
   async resendEmailConfirm(@Body() email: ConfirmEmailDto) {
     return this.authenticationService
       .send({ cmd: 'auth-resend-email-confirm' }, email)
