@@ -28,7 +28,7 @@ export class AuthController {
   @Post('register')
   @UseFilters(RpcExceptionFilter)
   async register(@Body() registrationData: RegisterDto) {
-    return this.authenticationService
+    return await this.authenticationService
       .send({ cmd: 'auth-register' }, registrationData)
       .toPromise();
   }

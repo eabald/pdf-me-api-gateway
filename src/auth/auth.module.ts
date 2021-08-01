@@ -28,13 +28,12 @@ import { JwtStrategy } from './jwt.strategy';
         const user = configService.get('RABBITMQ_USER');
         const password = configService.get('RABBITMQ_PASSWORD');
         const host = configService.get('RABBITMQ_HOST');
-        const queueName = configService.get('RABBITMQ_QUEUE_NAME');
 
         return ClientProxyFactory.create({
           transport: Transport.RMQ,
           options: {
             urls: [`amqp://${user}:${password}@${host}`],
-            queue: queueName,
+            queue: 'authQueue',
             queueOptions: {
               durable: true,
             },
@@ -49,13 +48,13 @@ import { JwtStrategy } from './jwt.strategy';
         const user = configService.get('RABBITMQ_USER');
         const password = configService.get('RABBITMQ_PASSWORD');
         const host = configService.get('RABBITMQ_HOST');
-        const queueName = configService.get('RABBITMQ_QUEUE_NAME');
+        // const queueName = configService.get('RABBITMQ_QUEUE_NAME');
 
         return ClientProxyFactory.create({
           transport: Transport.RMQ,
           options: {
             urls: [`amqp://${user}:${password}@${host}`],
-            queue: queueName,
+            queue: 'usersQueue',
             queueOptions: {
               durable: true,
             },
