@@ -1,4 +1,4 @@
-import { User } from '../users/interfaces/user.interface';
+import { User } from '@pdf-me/shared';
 import { PassportSerializer } from '@nestjs/passport';
 import { Injectable, Inject } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';

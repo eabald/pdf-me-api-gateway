@@ -9,14 +9,16 @@ import {
   Body,
 } from '@nestjs/common';
 import { LogInWithCredentialsGuard } from './logInWithCredentials.guard';
-import { RequestWithUser } from './interfaces/requestWithUser.interface';
 import { RpcExceptionFilter } from '../utils/rpcException.filter';
 import { ClientProxy } from '@nestjs/microservices';
-import { RegisterDto } from './dto/register.dto';
-import { ForgetPasswordDto } from './dto/forgetPassword.dto';
-import { ResetPasswordDto } from './dto/resetPassword.dto';
+import {
+  RegisterDto,
+  ForgetPasswordDto,
+  ResetPasswordDto,
+  ConfirmEmailDto,
+  RequestWithUser,
+} from '@pdf-me/shared';
 import { CookieAuthenticationGuard } from './cookieAuthentication.guard';
-import { ConfirmEmailDto } from './dto/confirmEmail.dto';
 import { JwtAuthenticationGuard } from './jwt-authentication.guard';
 
 @Controller('auth')

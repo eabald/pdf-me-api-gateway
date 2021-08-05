@@ -1,5 +1,5 @@
 {
-  "name": "api-gateway",
+  "name": "@pdf-me/api-gateway",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -30,6 +30,7 @@
     "@nestjs/microservices": "^8.0.4",
     "@nestjs/passport": "^8.0.0",
     "@nestjs/platform-express": "^8.0.0",
+    "@pdf-me/shared": "^1.0.0",
     "@types/cookie-parser": "^1.4.2",
     "@types/passport-jwt": "^3.0.6",
     "@types/passport-local": "^1.0.34",
