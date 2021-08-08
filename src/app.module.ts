@@ -3,6 +3,7 @@ import * as Joi from '@hapi/joi';
 import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { TemplatesModule } from './templates/templates.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -22,6 +23,7 @@ import { UsersModule } from './users/users.module';
     }),
     AuthModule,
     UsersModule,
+    TemplatesModule,
   ],
 })
 export class AppModule {}
