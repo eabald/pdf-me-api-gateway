@@ -8,12 +8,13 @@ import {
   Get,
   Res,
   UseFilters,
+  UseGuards,
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { DocumentDataDto, RequestWithUser } from '@pdf-me/shared';
 import { Response } from 'express';
 import { RpcExceptionFilter } from 'src/utils/rpcException.filter';
-
+import { ApiKeyGuard } from '../auth/api-key.guard';
 @Controller('files')
 export class FilesController {
   constructor(
@@ -22,6 +23,7 @@ export class FilesController {
   ) {}
 
   @Post('generate')
+  @UseGuards(ApiKeyGuard)
   @UseFilters(RpcExceptionFilter)
   async generateFile(
     @Body() fileData: DocumentDataDto,
@@ -37,6 +39,7 @@ export class FilesController {
   }
 
   @Get('/:filename')
+  @UseGuards(ApiKeyGuard)
   @UseFilters(RpcExceptionFilter)
   async getFile(@Param('filename') filename: string, @Res() res: Response) {
     const file = await this.filsesService

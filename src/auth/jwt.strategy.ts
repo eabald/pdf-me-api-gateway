@@ -23,6 +23,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(payload: TokenPayload) {
-    return this.usersService.send({ cmd: 'users-get-by-id' }, payload.userId);
+    return await this.usersService
+      .send({ cmd: 'users-get-by-id' }, payload.userId)
+      .toPromise();
   }
 }

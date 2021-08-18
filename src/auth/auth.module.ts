@@ -6,6 +6,7 @@ import { LocalStrategy } from './local.strategy';
 import { LocalSerializer } from './local.serializer';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './jwt.strategy';
+import { ApiKeyStrategy } from './api-key.strategy';
 
 @Module({
   imports: [
@@ -66,6 +67,7 @@ import { JwtStrategy } from './jwt.strategy';
     LocalStrategy,
     LocalSerializer,
     JwtStrategy,
+    ApiKeyStrategy,
   ],
   controllers: [AuthController],
 })
