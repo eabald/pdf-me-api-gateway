@@ -86,4 +86,13 @@ export class AuthController {
       .send({ cmd: 'auth-resend-email-confirm' }, email)
       .toPromise();
   }
+
+  @Post('generate-api-key')
+  @UseFilters(RpcExceptionFilter)
+  @UseGuards(CookieAuthenticationGuard)
+  async generateApiKey(@Req() request: RequestWithUser) {
+    return this.authenticationService
+      .send({ cmd: 'auth-generate-api-key' }, request.user.id)
+      .toPromise();
+  }
 }

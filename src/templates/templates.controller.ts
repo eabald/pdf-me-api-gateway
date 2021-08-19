@@ -40,7 +40,6 @@ export class TemplatesController {
   @UseFilters(RpcExceptionFilter)
   @Get('details/:id')
   async getTemplateDetails(@Param('id', ParseIntPipe) id: number) {
-    console.log(id);
     return await this.templatesService
       .send({ cmd: 'templates-get-by-id' }, id)
       .toPromise();

@@ -1,10 +1,10 @@
-import { HeaderAPIKeyStrategy } from 'passport-headerapikey';
+// import { HeaderAPIKeyStrategy } from 'passport-headerapikey';
 import { PassportStrategy } from '@nestjs/passport';
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, UnauthorizedException } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-
+import Strategy from 'passport-headerapikey';
 @Injectable()
-export class ApiKeyStrategy extends PassportStrategy(HeaderAPIKeyStrategy) {
+export class ApiKeyStrategy extends PassportStrategy(Strategy, 'api-key') {
   constructor(
     @Inject('AUTH_SERVICE') private authenticationService: ClientProxy,
   ) {
@@ -13,9 +13,9 @@ export class ApiKeyStrategy extends PassportStrategy(HeaderAPIKeyStrategy) {
         .send({ cmd: 'auth-validate-api-key' }, apiKey)
         .toPromise();
       if (!checkKey) {
-        return done(false);
+        return done(new UnauthorizedException(), null);
       }
-      return done(true);
+      return done(null, true);
     });
   }
 }

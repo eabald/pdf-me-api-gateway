@@ -29,7 +29,6 @@ export class FilesController {
     @Body() fileData: DocumentDataDto,
     @Req() request: RequestWithUser,
   ) {
-    console.log('api-gateway');
     return await this.documentsService
       .send(
         { cmd: 'document-generation-generate' },
@@ -45,8 +44,6 @@ export class FilesController {
     const file = await this.filsesService
       .send({ cmd: 'files-get-file' }, filename)
       .toPromise();
-    console.log(file);
     res.redirect(file);
-    // file.pipe(res);
   }
 }
