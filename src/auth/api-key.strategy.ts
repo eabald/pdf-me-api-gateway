@@ -9,13 +9,14 @@ export class ApiKeyStrategy extends PassportStrategy(Strategy, 'api-key') {
     @Inject('AUTH_SERVICE') private authenticationService: ClientProxy,
   ) {
     super({ header: 'X-API-KEY', prefix: '' }, true, async (apiKey, done) => {
-      const checkKey = await authenticationService
+      const user = await authenticationService
         .send({ cmd: 'auth-validate-api-key' }, apiKey)
         .toPromise();
-      if (!checkKey) {
+      console.log(user);
+      if (!user) {
         return done(new UnauthorizedException(), null);
       }
-      return done(null, true);
+      return done(null, user);
     });
   }
 }
