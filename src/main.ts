@@ -6,9 +6,12 @@ import * as session from 'express-session';
 import { createClient } from 'redis';
 import * as createRedisStore from 'connect-redis';
 import * as passport from 'passport';
+import rawBodyMiddleware from './utils/middleware/rawBody.middleware';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.use(rawBodyMiddleware());
 
   app.use(cookieParser());
   const configService = app.get(ConfigService);

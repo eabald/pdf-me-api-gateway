@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { TemplatesModule } from './templates/templates.module';
 import { FilesModule } from './files/files.module';
+import { WebhooksModule } from './webhooks/webhooks.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -26,6 +27,7 @@ import { FilesModule } from './files/files.module';
     UsersModule,
     TemplatesModule,
     FilesModule,
+    WebhooksModule,
   ],
 })
 export class AppModule {}
