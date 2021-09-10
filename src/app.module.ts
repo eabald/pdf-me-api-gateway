@@ -7,6 +7,7 @@ import { TemplatesModule } from './templates/templates.module';
 import { FilesModule } from './files/files.module';
 import { WebhooksModule } from './webhooks/webhooks.module';
 import { PaymentsModule } from './payments/payments.module';
+import { InvoicesModule } from './invoices/invoices.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -30,6 +31,7 @@ import { PaymentsModule } from './payments/payments.module';
     FilesModule,
     WebhooksModule,
     PaymentsModule,
+    InvoicesModule,
   ],
 })
 export class AppModule {}
