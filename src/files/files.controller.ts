@@ -40,10 +40,11 @@ export class FilesController {
   @Get('/:filename')
   @UseGuards(ApiKeyGuard)
   @UseFilters(RpcExceptionFilter)
-  async getFile(@Param('filename') filename: string, @Res() res: Response) {
+  async getFile(@Param() params, @Res() res: Response) {
+    console.log(params);
     const file = await this.filsesService
-      .send({ cmd: 'files-get-file' }, filename)
+      .send({ cmd: 'files-get-file' }, params.filename)
       .toPromise();
-    res.redirect(file);
+    file.pipe(res);
   }
 }
