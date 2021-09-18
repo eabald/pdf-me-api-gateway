@@ -15,6 +15,8 @@ import { DocumentDataDto, RequestWithUser } from '@pdf-me/shared';
 import { Response } from 'express';
 import { RpcExceptionFilter } from 'src/utils/rpcException.filter';
 import { ApiKeyGuard } from '../auth/api-key.guard';
+// import { Readable } from 'stream';
+
 @Controller('files')
 export class FilesController {
   constructor(
@@ -41,10 +43,10 @@ export class FilesController {
   @UseGuards(ApiKeyGuard)
   @UseFilters(RpcExceptionFilter)
   async getFile(@Param() params, @Res() res: Response) {
-    console.log(params);
     const file = await this.filsesService
       .send({ cmd: 'files-get-file' }, params.filename)
       .toPromise();
-    file.pipe(res);
+    res.setHeader('Content-Type', 'application/pdf');
+    res.send(Buffer.from(file));
   }
 }
