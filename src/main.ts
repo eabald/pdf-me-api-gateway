@@ -16,6 +16,11 @@ async function bootstrap() {
   app.use(cookieParser());
   const configService = app.get(ConfigService);
 
+  app.enableCors({
+    origin: configService.get('FRONTEND_URL'),
+    credentials: true,
+  });
+
   const RedisStore = createRedisStore(session);
   const redisClient = createClient({
     host: configService.get('REDIS_HOST'),
