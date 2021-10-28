@@ -2,7 +2,7 @@
 
 ## Overview
 
-Main application entry point. Exposes REST API for pdf generation and GraphQL api for user panel and homepage.
+Main application entry point. Exposes REST API for pdf generation, user panel and homepage.
 
 ## Development
 
