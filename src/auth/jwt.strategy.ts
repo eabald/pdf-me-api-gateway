@@ -3,7 +3,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, Inject } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Request } from 'express';
-import { TokenPayload } from '@pdf-me/shared';
+import { TokenPayload } from '@eabald/pdf-me-shared';
 import { ClientProxy } from '@nestjs/microservices';
 
 @Injectable()

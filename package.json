@@ -1,5 +1,5 @@
 {
-  "name": "@pdf-me/api-gateway",
+  "name": "@eabald/pdf-me-api-gateway",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -21,7 +21,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@eabald/pdf-me-shared": "^0.0.1",
+    "@eabald/pdf-me-shared": "^0.0.1-alfa",
     "@hapi/joi": "^17.1.1",
     "@nestjs/common": "^8.0.0",
     "@nestjs/config": "^1.0.1",

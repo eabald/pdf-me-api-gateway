@@ -11,7 +11,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { DocumentDataDto, RequestWithUser } from '@pdf-me/shared';
+import { DocumentDataDto, RequestWithUser } from '@eabald/pdf-me-shared';
 import { Response } from 'express';
 import { RpcExceptionFilter } from 'src/utils/rpcException.filter';
 import { ApiKeyGuard } from '../auth/api-key.guard';

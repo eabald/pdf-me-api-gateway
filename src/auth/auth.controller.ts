@@ -17,7 +17,7 @@ import {
   ResetPasswordDto,
   ConfirmEmailDto,
   RequestWithUser,
-} from '@pdf-me/shared';
+} from '@eabald/pdf-me-shared';
 import { CookieAuthenticationGuard } from './cookieAuthentication.guard';
 import { JwtAuthenticationGuard } from './jwt-authentication.guard';
 

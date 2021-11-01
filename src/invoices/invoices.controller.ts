@@ -9,7 +9,7 @@ import {
 import { ClientProxy } from '@nestjs/microservices';
 import { CookieAuthenticationGuard } from 'src/auth/cookieAuthentication.guard';
 import { RpcExceptionFilter } from 'src/utils/rpcException.filter';
-import { RequestWithUser } from '@pdf-me/shared';
+import { RequestWithUser } from '@eabald/pdf-me-shared';
 
 @Controller('invoices')
 export class InvoicesController {

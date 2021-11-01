@@ -17,7 +17,7 @@ import {
   CreateTemplateDto,
   RequestWithUser,
   UpdateTemplateDto,
-} from '@pdf-me/shared';
+} from '@eabald/pdf-me-shared';
 import { CookieAuthenticationGuard } from 'src/auth/cookieAuthentication.guard';
 import { RpcExceptionFilter } from 'src/utils/rpcException.filter';
 

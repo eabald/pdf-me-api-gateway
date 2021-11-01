@@ -10,7 +10,7 @@ import {
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { CookieAuthenticationGuard } from '../auth/cookieAuthentication.guard';
-import { CreatePaymentApiDto, RequestWithUser } from '@pdf-me/shared';
+import { CreatePaymentApiDto, RequestWithUser } from '@eabald/pdf-me-shared';
 import { RpcExceptionFilter } from '../utils/rpcException.filter';
 
 @Controller('payments')

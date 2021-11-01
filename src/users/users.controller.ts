@@ -7,7 +7,7 @@ import {
   UseFilters,
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { RequestWithUser } from '@pdf-me/shared';
+import { RequestWithUser } from '@eabald/pdf-me-shared';
 import { RpcExceptionFilter } from '../utils/rpcException.filter';
 import { CookieAuthenticationGuard } from '../auth/cookieAuthentication.guard';
 
