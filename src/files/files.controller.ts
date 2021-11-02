@@ -13,7 +13,7 @@ import {
 import { ClientProxy } from '@nestjs/microservices';
 import { DocumentDataDto, RequestWithUser } from '@eabald/pdf-me-shared';
 import { Response } from 'express';
-import { RpcExceptionFilter } from 'src/utils/rpcException.filter';
+import { RpcExceptionFilter } from '../utils/rpcException.filter';
 import { ApiKeyGuard } from '../auth/api-key.guard';
 // import { Readable } from 'stream';
 

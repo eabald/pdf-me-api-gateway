@@ -7,8 +7,8 @@ import {
   UseFilters,
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
-import { CookieAuthenticationGuard } from 'src/auth/cookieAuthentication.guard';
-import { RpcExceptionFilter } from 'src/utils/rpcException.filter';
+import { CookieAuthenticationGuard } from '../auth/cookieAuthentication.guard';
+import { RpcExceptionFilter } from '../utils/rpcException.filter';
 import { RequestWithUser } from '@eabald/pdf-me-shared';
 
 @Controller('invoices')

@@ -18,8 +18,8 @@ import {
   RequestWithUser,
   UpdateTemplateDto,
 } from '@eabald/pdf-me-shared';
-import { CookieAuthenticationGuard } from 'src/auth/cookieAuthentication.guard';
-import { RpcExceptionFilter } from 'src/utils/rpcException.filter';
+import { CookieAuthenticationGuard } from '../auth/cookieAuthentication.guard';
+import { RpcExceptionFilter } from '../utils/rpcException.filter';
 
 @Controller('templates')
 export class TemplatesController {

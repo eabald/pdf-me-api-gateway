@@ -7,6 +7,10 @@ describe('FilesController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [FilesController],
+      providers: [
+        { provide: 'FILES_SERVICE', useFactory: () => ({}) },
+        { provide: 'DOCUMENTS_SERVICE', useFactory: () => ({}) },
+      ],
     }).compile();
 
     controller = module.get<FilesController>(FilesController);

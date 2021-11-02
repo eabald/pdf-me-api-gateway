@@ -7,6 +7,7 @@ describe('PaymentsController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [PaymentsController],
+      providers: [{ provide: 'PAYMENTS_SERVICE', useFactory: () => ({}) }],
     }).compile();
 
     controller = module.get<PaymentsController>(PaymentsController);
