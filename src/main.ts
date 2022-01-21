@@ -7,6 +7,7 @@ import { createClient } from 'redis';
 import * as createRedisStore from 'connect-redis';
 import * as passport from 'passport';
 import rawBodyMiddleware from './utils/middleware/rawBody.middleware';
+import { Config } from '@eabald/pdf-me-shared';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -14,7 +15,7 @@ async function bootstrap() {
   app.use(rawBodyMiddleware());
 
   app.use(cookieParser());
-  const configService = app.get(ConfigService);
+  const configService: ConfigService<Config> = app.get(ConfigService);
 
   app.enableCors({
     origin: '*',

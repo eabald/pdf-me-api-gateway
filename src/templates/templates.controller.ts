@@ -29,7 +29,7 @@ export class TemplatesController {
 
   @UseGuards(CookieAuthenticationGuard)
   @UseFilters(RpcExceptionFilter)
-  @Get()
+  @Get('/all')
   async getTemplatesList(@Req() request: RequestWithUser) {
     return await this.templatesService
       .send({ cmd: 'templates-get-by-user-id' }, request.user.id)
